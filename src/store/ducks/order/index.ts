@@ -6,6 +6,7 @@ const INITIAL_STATE = {
   price: "",
   dough: "",
   size: "",
+  recommendedStatus: false,
   recommended: "",
   points: "",
 };
@@ -15,6 +16,9 @@ export const setOrderPrice = createAction<number | string>("SET_ORDER_PRICE");
 export const setOrderDough = createAction<string>("SET_ORDER_DOUGH");
 export const setOrderSize = createAction<string>("SET_ORDER_SIZE");
 export const setRecommended = createAction<string>("SET_ORDER_RECOMMENDED");
+export const setRecommendedStatus = createAction<boolean>(
+  "SET_ORDER_RECOMMENDED_STATUS"
+);
 export const setPoints = createAction<number | string>("SET_POINTS");
 
 export default createReducer(INITIAL_STATE, {
@@ -37,6 +41,10 @@ export default createReducer(INITIAL_STATE, {
   [setRecommended.type]: (state, action: any) => ({
     ...state,
     recommended: action.payload,
+  }),
+  [setRecommendedStatus.type]: (state, action: any) => ({
+    ...state,
+    recommendedStatus: action.payload,
   }),
   [setPoints.type]: (state, action: any) => ({
     ...state,

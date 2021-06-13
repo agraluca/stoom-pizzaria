@@ -16,6 +16,11 @@ export const Wrapper = styled.section`
     }
     .pay {
       width: 100%;
+      margin-bottom: ${theme.spacings.small};
+    }
+    .cancel {
+      width: 100%;
+      margin-bottom: ${theme.spacings.xxsmall};
     }
   `}
 `;

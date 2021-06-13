@@ -86,6 +86,12 @@ export const Ribbon = styled.div`
   `}
 `;
 
+export const TitleDay = styled.h3`
+  ${({ theme }) => css`
+    color: ${theme.colors.white};
+  `}
+`;
+
 export const Name = styled.h3`
   ${({ theme }) => css`
     font-size: ${theme.font.sizes.large};

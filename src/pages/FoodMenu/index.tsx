@@ -1,22 +1,49 @@
 import Button from "components/Button";
 import { Container } from "components/Container";
 import PizzaCard from "components/PizzaCard";
-import { useAppSelector } from "hooks";
-import { Link } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "hooks";
+import { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import * as path from "routes/paths";
+import { fetchGetMenu } from "store/fetchActions/fetchMenu";
 import * as S from "./styles";
 
 export default function FoodMenu() {
+  const dispatch = useAppDispatch();
   const { name } = useAppSelector(({ order }) => order);
+  const { pizzas } = useAppSelector(({ menu }) => menu);
+  const history = useHistory();
+
+  useEffect(() => {
+    dispatch(fetchGetMenu());
+  }, [dispatch]);
+
+  const goAhead = () => {
+    if (name) {
+      history.push(path.dough);
+    }
+  };
+
   console.log("nome", name);
   return (
     <S.Wrapper>
       <Container>
-        <PizzaCard type="name" name="Pepperoni" price={50} />
-        <PizzaCard type="name" name="Calabresa" price={45} />
-        <Link to={path.dough}>
-          <Button disabled={!name}>Escolher a massa</Button>
-        </Link>
+        {pizzas.map((pizza) => {
+          return (
+            <PizzaCard
+              img={pizza?.img}
+              key={pizza?.name}
+              type="name"
+              name={pizza?.name}
+              description={pizza?.description}
+              price={pizza?.price}
+            />
+          );
+        })}
+
+        <Button disabled={!name} onClick={goAhead}>
+          Escolher a massa
+        </Button>
       </Container>
     </S.Wrapper>
   );

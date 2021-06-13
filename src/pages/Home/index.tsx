@@ -1,10 +1,35 @@
+import { useEffect } from "react";
+
 import pizza from "assets/img/pizza.svg";
 import { Link } from "react-router-dom";
 import Menu from "components/Menu";
 import { Container } from "components/Container";
+
+import { useAppDispatch } from "hooks";
+
+import {
+  setOrderDough,
+  setOrderName,
+  setOrderPrice,
+  setOrderSize,
+  setRecommended,
+  setRecommendedStatus,
+} from "store/ducks/order";
+
 import * as S from "./styles";
 
 export default function Home() {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(setOrderName(""));
+    dispatch(setOrderDough(""));
+    dispatch(setOrderPrice(""));
+    dispatch(setOrderSize(""));
+    dispatch(setRecommended(""));
+    dispatch(setRecommendedStatus(false));
+    dispatch(setOrderName(""));
+  }, [dispatch]);
   return (
     <>
       <Menu />

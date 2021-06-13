@@ -10,25 +10,24 @@ import {
   setOrderName,
   setOrderPrice,
   setOrderSize,
-  setRecommended,
-  setPoints,
+  setRecommendedStatus,
 } from "store/ducks/order";
 
 export type PizzaCardProps = {
   img?: string;
   name?: string;
   description?: string;
-  price?: number;
+  price?: number | string;
   recommended?: boolean;
   type: "name" | "dough" | "size" | "recommended";
-  points?: number;
+  points?: number | string;
 };
 
 export default function PizzaCard({
   img = "https://images.unsplash.com/photo-1544982503-9f984c14501a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80",
   name = "Nome da Pizza",
   description = " Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem vitae, accusantium ipsa magni sequi mollitia! Distinctio cum mollitia eaque odit qui, ad aspernatur ex est voluptatem saepe accusamus soluta tenetur",
-  price = 50,
+  price,
   recommended = false,
   type,
   points,
@@ -42,7 +41,7 @@ export default function PizzaCard({
     if (!isChecked) {
       if (type === "name") {
         dispatch(setOrderName(name));
-        dispatch(setOrderPrice(price));
+        price && dispatch(setOrderPrice(price));
       } else if (type === "dough") {
         dispatch(setOrderDough(name));
       } else {
@@ -61,53 +60,51 @@ export default function PizzaCard({
   };
 
   const addRecommended = () => {
-    const totalPrice = Number(order.price + price);
-    const totalPoints = Number(order.points + points);
-    console.log("preco total", totalPrice);
-    if (type === "recommended") {
-      dispatch(setRecommended(name));
-      dispatch(setOrderPrice(totalPrice));
-      dispatch(setPoints(totalPoints));
-    } else {
-      const oldPrice = Number(totalPrice - price);
-      const oldPoints = points ? Number(totalPoints - points) : order.points;
-      dispatch(setRecommended(""));
-      dispatch(setOrderPrice(oldPrice));
-      dispatch(setPoints(oldPoints));
-    }
+    dispatch(setRecommendedStatus(!order.recommendedStatus));
   };
   return (
-    <S.Wrapper>
-      <S.Image src={img} alt="Pizza de calabresa" />
-      <S.Info>
-        <S.Header>
-          <S.Name>{name}</S.Name>
-          {recommended ? (
-            <S.Ribbon>Ganhe {points} pontos</S.Ribbon>
-          ) : (
-            <S.CheckBox onClick={addToCart}>
-              {isChecked && <Check />}
-            </S.CheckBox>
-          )}
-        </S.Header>
+    <>
+      {recommended && <S.TitleDay>Pizza do dia:</S.TitleDay>}
+      <S.Wrapper>
+        <S.Image src={img} alt="Pizza de calabresa" />
+        <S.Info>
+          <S.Header>
+            <S.Name>{name}</S.Name>
+            {recommended ? (
+              <S.Ribbon>Ganhe {Number(points)} pontos</S.Ribbon>
+            ) : (
+              <S.CheckBox onClick={addToCart}>
+                {isChecked && <Check />}
+              </S.CheckBox>
+            )}
+          </S.Header>
 
-        <S.Description>{description}</S.Description>
-        {recommended && price && (
-          <S.Recommended>
-            <S.Price recommended={recommended}>R$ {price.toFixed(2)}</S.Price>
-            <Button
-              className="addRecommended"
-              onClick={addRecommended}
-              size="large"
-            >
-              Quero! <span>{!!order.recommended && <Check />}</span>
-            </Button>
-          </S.Recommended>
-        )}
-        {price && !recommended && (
-          <S.Price recommended={recommended}>R$ {price.toFixed(2)}</S.Price>
-        )}
-      </S.Info>
-    </S.Wrapper>
+          <S.Description>{description}</S.Description>
+          {recommended && price && (
+            <S.Recommended>
+              <S.Price recommended={recommended}>
+                R$ {Number(price).toFixed(2)}
+              </S.Price>
+              <Button
+                className="addRecommended"
+                onClick={addRecommended}
+                size="large"
+              >
+                {order.recommendedStatus ? (
+                  <span>{<Check />}</span>
+                ) : (
+                  <span>Quero!</span>
+                )}
+              </Button>
+            </S.Recommended>
+          )}
+          {price && !recommended && (
+            <S.Price recommended={recommended}>
+              R$ {Number(price).toFixed(2)}
+            </S.Price>
+          )}
+        </S.Info>
+      </S.Wrapper>
+    </>
   );
 }

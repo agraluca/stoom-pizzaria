@@ -9,11 +9,14 @@ export const Wrapper = styled.div`
     align-items: center;
     h1 {
       color: ${theme.colors.white};
-      align-text: center;
+      text-align: center;
       margin-bottom: ${theme.spacings.small};
     }
     a {
       text-decoration: none;
+    }
+    .pay {
+      margin-bottom: ${theme.spacings.medium};
     }
   `}
 `;
