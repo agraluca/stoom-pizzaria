@@ -16,6 +16,7 @@ const INITIAL_STATE = {
       id: "",
       name: "",
       description: "",
+      img: "",
     },
   ],
   sizes: [
@@ -23,6 +24,7 @@ const INITIAL_STATE = {
       id: "",
       name: "",
       description: "",
+      img: "",
     },
   ],
   recommended: [

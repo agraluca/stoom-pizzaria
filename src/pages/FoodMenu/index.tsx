@@ -9,6 +9,14 @@ import { useHistory } from "react-router-dom";
 
 import { useAppDispatch, useAppSelector } from "hooks";
 import { fetchGetMenu } from "store/fetchActions/fetchMenu";
+import {
+  setOrderDough,
+  setOrderName,
+  setOrderPrice,
+  setOrderSize,
+  setRecommended,
+  setRecommendedStatus,
+} from "store/ducks/order";
 
 import * as path from "routes/paths";
 
@@ -22,6 +30,13 @@ export default function FoodMenu() {
   const history = useHistory();
 
   useEffect(() => {
+    dispatch(setOrderName(""));
+    dispatch(setOrderDough(""));
+    dispatch(setOrderPrice(""));
+    dispatch(setOrderSize(""));
+    dispatch(setRecommended(""));
+    dispatch(setRecommendedStatus(false));
+    dispatch(setOrderName(""));
     dispatch(fetchGetMenu());
   }, [dispatch]);
 

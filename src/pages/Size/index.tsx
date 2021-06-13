@@ -42,6 +42,7 @@ export default function Size() {
           {sizes.map((size) => {
             return (
               <PizzaCard
+                img={size?.img}
                 key={size?.name}
                 type="size"
                 name={size?.name}

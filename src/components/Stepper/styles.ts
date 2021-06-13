@@ -15,7 +15,6 @@ export const Wrapper = styled.section`
     background-color: ${theme.colors.black};
     padding-top: ${theme.spacings.large};
     padding-bottom: ${theme.spacings.large};
-    border-radius: 0 0 ${theme.border.radius} ${theme.border.radius};
 
     overflow: hidden;
   `}

@@ -43,6 +43,7 @@ export default function DoughTypes() {
           {doughs.map((dough) => {
             return (
               <PizzaCard
+                img={dough?.img}
                 key={dough?.name}
                 type="dough"
                 name={dough?.name}

@@ -7,7 +7,7 @@ export const Wrapper = styled.menu`
     justify-content: space-between;
     padding: ${theme.spacings.small} ${theme.spacings.medium};
     background: ${theme.colors.black};
-    height: 15vh;
+    height: 20vh;
   `}
 `;
 

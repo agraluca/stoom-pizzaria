@@ -1,10 +1,11 @@
 import styled, { css } from "styled-components";
 import media from "styled-media-query";
 import { Container } from "components/Container";
+import { Wrapper as Button } from "components/Button/styles";
 
 export const Wrapper = styled.section`
   ${({ theme }) => css`
-    height: 85vh;
+    height: 80vh;
     padding: ${theme.spacings.xxlarge} calc(${theme.spacings.xxlarge}*2);
     display: grid;
     grid-template-columns: repeat(2, minmax(35rem, 1fr));
@@ -12,7 +13,9 @@ export const Wrapper = styled.section`
     justify-content: center;
     column-gap: ${theme.grid.gutter};
 
-    a {
+    ${Button} {
+      background-color: ${theme.colors.orange};
+
       color: ${theme.colors.white};
       border: 0.2rem solid ${theme.colors.white};
       border-radius: ${theme.border.radius};

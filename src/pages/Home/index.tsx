@@ -3,8 +3,9 @@ import { useEffect } from "react";
 import pizza from "assets/img/pizza.svg";
 import Menu from "components/Menu";
 import { Container } from "components/Container";
+import Button from "components/Button";
 
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import { useAppDispatch } from "hooks";
 
@@ -17,10 +18,13 @@ import {
   setRecommendedStatus,
 } from "store/ducks/order";
 
+import * as path from "routes/paths";
+
 import * as S from "./styles";
 
 export default function Home() {
   const dispatch = useAppDispatch();
+  const history = useHistory();
 
   useEffect(() => {
     dispatch(setOrderName(""));
@@ -31,6 +35,11 @@ export default function Home() {
     dispatch(setRecommendedStatus(false));
     dispatch(setOrderName(""));
   }, [dispatch]);
+
+  const goAhead = () => {
+    history.push(path.pizzaMenu);
+  };
+
   return (
     <>
       <Menu />
@@ -42,7 +51,8 @@ export default function Home() {
             voluptatem harum neque. Architecto eaque, numquam debitis, esse
             veniam culpa repudiandae commodi aliquid quas iure consectetur.
           </p>
-          <Link to="/cardapio">Veja nosso cardápio</Link>
+
+          <Button onClick={goAhead}>Veja nosso cardápio</Button>
         </Container>
         <Container>
           <img

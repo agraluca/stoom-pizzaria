@@ -15,6 +15,8 @@ const GlobalStyles = createGlobalStyle`
     }
 
     body {
+      min-width: 36rem;
+      overflow-x: hidden;
       background-color: ${theme.colors.orange};
       font-family: ${theme.font.family};
       font-size: ${theme.font.sizes.medium};
