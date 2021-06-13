@@ -64,7 +64,7 @@ Para começar precisamos instalar algumas coisas
 
 
 ```bash
-$ git clonehttps://github.com/agraluca/stoom-pizzaria.git && cd stoom-pizzaria
+$ git clone https://github.com/agraluca/stoom-pizzaria.git && cd stoom-pizzaria
 ```
 
 **Siga esses passos**
