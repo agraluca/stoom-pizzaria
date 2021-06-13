@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="Stoom Pizzaria" title="Stoom Pizzaria" src=".github/logo.svg" />
+    <img alt="Stoom Pizzaria" title="Stoom Pizzaria" src=".github/logo.png" />
 </h1>
 
 <h3 align="center">
