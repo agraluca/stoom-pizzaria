@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="Stoom Pizzaria" title="Stoom Pizzaria" src=".github/logo.png" />
+    <img alt="Stoom Pizzaria" title="Stoom Pizzaria" src=".github/logo.svg" />
 </h1>
 
 <h3 align="center">
@@ -30,15 +30,15 @@ Esse projeto foi desenvolvido como desafio prático para a empresa [Stoom](https
 
 Stoom Pizzaria é uma aplicação que simula um site de pedido de delivery para Pizzaria.
 
-Nesse projeto decidi utilizar TypeScript juntamente com Redux - coisa que nunca havia feito antes. Foi uma experiência desafiadora mas muita boa. Tive algumas dificuldades com a tipagem do redux, mas no geral me virei. Decidi não utilizar bibliotecas de componente como Antd e Material UI para conseguir mostrar minhas habilidades com o CSS - nessa caso utilizei o Styled components. 
+Nesse projeto decidi utilizar TypeScript juntamente com Redux - coisa que nunca havia feito antes. Foi uma experiência desafiadora mas muita boa. Tive algumas dificuldades com a tipagem do redux, mas no geral me virei. Decidi não utilizar bibliotecas de componente como Antd e Material UI para conseguir mostrar minhas habilidades com o CSS - nessa caso utilizei o Styled components.
 
 Como API, utilizei o [Mock API](https://mockapi.io/), que me permitiu criar apenas 4 endpoints. Eu acabei precisando de 5 no total, mas como o plano gratuito so permitia 4 endpoints, utilizei também o local storage do navegador, mostrando também saber utilizar essa ferrmanta.
 
-Montei uma estrutura de projeto pensada a longo prazo, usando prettier, eslint e uma arquitetura bem dividida com os Ducks no Redux. Além disso criei um tema para o projeto, tornando o desenvlvimento mais prazeroso - visto que o TypeScript auxilia na tipagem ao acessar uma propriedade - e evitando problemas de alterações de cores, espaçamento e etc no futuro, bastando apenas alterar em um lugar. 
+Montei uma estrutura de projeto pensada a longo prazo, usando prettier, eslint e uma arquitetura bem dividida com os Ducks no Redux. Além disso criei um tema para o projeto, tornando o desenvlvimento mais prazeroso - visto que o TypeScript auxilia na tipagem ao acessar uma propriedade - e evitando problemas de alterações de cores, espaçamento e etc no futuro, bastando apenas alterar em um lugar.
 
 Por fim, como a logo da Stoom não estava de fácil acesso pela internet, decidi vetorizar usando o Figma para ter a logo em SVG, mantendo a qualidade e possibilitando alterações de cores.
 
-O link da aplicação no ar será: 
+O link da aplicação no ar será:
 [Stoom Pizzaria](https://stoom-pizzaria.netlify.app/)
 
 ## 🚀 Tecnologias
