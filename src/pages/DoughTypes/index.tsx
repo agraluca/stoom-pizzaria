@@ -1,17 +1,24 @@
+import { useEffect } from "react";
+
 import Button from "components/Button";
 import { Container } from "components/Container";
+import Loading from "components/Spinner";
 import PizzaCard from "components/PizzaCard";
-import { useAppDispatch, useAppSelector } from "hooks";
-import { useEffect } from "react";
+
 import { useHistory } from "react-router-dom";
-import * as path from "routes/paths";
+
+import { useAppDispatch, useAppSelector } from "hooks";
 import { fetchGetDough } from "store/fetchActions/fetchMenu";
+
+import * as path from "routes/paths";
+
 import * as S from "./styles";
 
 export default function DoughTypes() {
   const dispatch = useAppDispatch();
   const { name, dough } = useAppSelector(({ order }) => order);
   const { doughs } = useAppSelector(({ menu }) => menu);
+  const { loading } = useAppSelector(({ loading }) => loading);
   const history = useHistory();
 
   const goAhead = () => {
@@ -29,22 +36,26 @@ export default function DoughTypes() {
 
   return (
     <S.Wrapper>
-      <Container>
-        {doughs.map((dough) => {
-          return (
-            <PizzaCard
-              key={dough?.name}
-              type="dough"
-              name={dough?.name}
-              description={dough?.description}
-            />
-          );
-        })}
+      {loading ? (
+        <Loading />
+      ) : (
+        <Container>
+          {doughs.map((dough) => {
+            return (
+              <PizzaCard
+                key={dough?.name}
+                type="dough"
+                name={dough?.name}
+                description={dough?.description}
+              />
+            );
+          })}
 
-        <Button disabled={!dough} onClick={goAhead}>
-          Escolher a tamanho
-        </Button>
-      </Container>
+          <Button disabled={!dough} onClick={goAhead}>
+            Escolher a tamanho
+          </Button>
+        </Container>
+      )}
     </S.Wrapper>
   );
 }

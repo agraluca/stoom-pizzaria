@@ -1,8 +1,11 @@
 import Button from "components/Button";
 import { Container } from "components/Container";
-import { Link, useHistory } from "react-router-dom";
+import Loading from "components/Spinner";
 import Menu from "components/Menu";
 
+import { Link, useHistory } from "react-router-dom";
+
+import { useAppDispatch, useAppSelector } from "hooks";
 import {
   setOrderDough,
   setOrderName,
@@ -13,11 +16,12 @@ import {
 } from "store/ducks/order";
 
 import * as path from "routes/paths";
+
 import * as S from "./styles";
-import { useAppDispatch, useAppSelector } from "hooks";
 
 export default function Success() {
   const order = useAppSelector(({ order }) => order);
+  const { loading } = useAppSelector(({ loading }) => loading);
   const dispatch = useAppDispatch();
   const history = useHistory();
   const handleClean = () => {
@@ -34,8 +38,10 @@ export default function Success() {
     <>
       <Menu />
       <S.Wrapper>
-        <Container>
-          <S.Wrapper>
+        {loading ? (
+          <Loading />
+        ) : (
+          <Container>
             <h1>Sua Compra foi efetuada com sucesso</h1>
 
             <S.Text>
@@ -56,13 +62,14 @@ export default function Success() {
               Preço total: <strong>R$ {Number(order.price).toFixed(2)}</strong>{" "}
             </S.Text>
             <S.Text>Seu pedido chegará em breve!</S.Text>
+
             <Link to={path.home}>
               <Button onClick={handleClean} className="pay">
                 Pedir novamente
               </Button>
             </Link>
-          </S.Wrapper>
-        </Container>
+          </Container>
+        )}
       </S.Wrapper>
     </>
   );

@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 
 import pizza from "assets/img/pizza.svg";
-import { Link } from "react-router-dom";
 import Menu from "components/Menu";
 import { Container } from "components/Container";
+
+import { Link } from "react-router-dom";
 
 import { useAppDispatch } from "hooks";
 

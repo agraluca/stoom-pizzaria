@@ -17,20 +17,7 @@ export const Wrapper = styled.div`
     }
     .pay {
       margin-bottom: ${theme.spacings.medium};
-    }
-  `}
-`;
-
-export const CheckMark = styled.div`
-  ${({ theme }) => css`
-    text-align: center;
-    padding: ${theme.spacings.small};
-    svg {
-      color: ${theme.colors.white};
-      background: ${theme.colors.white};
-      border-radius: 50%;
-      padding: 1rem;
-      width: 7rem;
+      width: 100%;
     }
   `}
 `;

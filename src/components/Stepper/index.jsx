@@ -1,5 +1,7 @@
 import logo from "assets/img/stoom_logo.svg";
+
 import { useAppSelector } from "hooks";
+
 import { Link } from "react-router-dom";
 
 import * as S from "./styles";

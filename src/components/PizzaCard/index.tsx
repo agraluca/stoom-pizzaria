@@ -3,7 +3,6 @@ import { useState } from "react";
 import { Check } from "@styled-icons/boxicons-regular/Check";
 import Button from "components/Button";
 
-import * as S from "./styles";
 import { useAppDispatch, useAppSelector } from "hooks";
 import {
   setOrderDough,
@@ -12,6 +11,8 @@ import {
   setOrderSize,
   setRecommendedStatus,
 } from "store/ducks/order";
+
+import * as S from "./styles";
 
 export type PizzaCardProps = {
   img?: string;

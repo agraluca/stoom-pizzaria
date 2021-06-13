@@ -1,17 +1,24 @@
+import { useEffect } from "react";
+
 import Button from "components/Button";
 import { Container } from "components/Container";
+import Loading from "components/Spinner";
 import PizzaCard from "components/PizzaCard";
-import { useAppDispatch, useAppSelector } from "hooks";
-import { useEffect } from "react";
+
 import { useHistory } from "react-router-dom";
-import * as path from "routes/paths";
+
+import { useAppDispatch, useAppSelector } from "hooks";
 import { fetchGetMenu } from "store/fetchActions/fetchMenu";
+
+import * as path from "routes/paths";
+
 import * as S from "./styles";
 
 export default function FoodMenu() {
   const dispatch = useAppDispatch();
   const { name } = useAppSelector(({ order }) => order);
   const { pizzas } = useAppSelector(({ menu }) => menu);
+  const { loading } = useAppSelector(({ loading }) => loading);
   const history = useHistory();
 
   useEffect(() => {
@@ -24,27 +31,30 @@ export default function FoodMenu() {
     }
   };
 
-  console.log("nome", name);
   return (
     <S.Wrapper>
-      <Container>
-        {pizzas.map((pizza) => {
-          return (
-            <PizzaCard
-              img={pizza?.img}
-              key={pizza?.name}
-              type="name"
-              name={pizza?.name}
-              description={pizza?.description}
-              price={pizza?.price}
-            />
-          );
-        })}
+      {loading ? (
+        <Loading />
+      ) : (
+        <Container>
+          {pizzas.map((pizza) => {
+            return (
+              <PizzaCard
+                img={pizza?.img}
+                key={pizza?.name}
+                type="name"
+                name={pizza?.name}
+                description={pizza?.description}
+                price={pizza?.price}
+              />
+            );
+          })}
 
-        <Button disabled={!name} onClick={goAhead}>
-          Escolher a massa
-        </Button>
-      </Container>
+          <Button disabled={!name} onClick={goAhead}>
+            Escolher a massa
+          </Button>
+        </Container>
+      )}
     </S.Wrapper>
   );
 }

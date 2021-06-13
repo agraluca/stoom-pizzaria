@@ -86,7 +86,7 @@ export default createReducer(INITIAL_STATE, {
     ...state,
     sizes: action.payload,
   }),
-  [getRecommended.type]: (state, action) => ({
+  [getRecommended.type]: (state, action: any) => ({
     ...state,
     recommended: action.payload,
   }),

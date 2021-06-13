@@ -14,7 +14,6 @@ export const fetchGetMenu = () => {
     api
       .get(`pizza`)
       .then((res) => {
-        console.log(res.data);
         dispatch(getPizzaMenu(res.data));
       })
       .catch((err) => {
@@ -32,7 +31,6 @@ export const fetchGetDough = () => {
     api
       .get(`dough`)
       .then((res) => {
-        console.log(res.data);
         dispatch(getPizzaDough(res.data));
       })
       .catch((err) => {
@@ -50,7 +48,6 @@ export const fetchGetSize = () => {
     api
       .get(`size`)
       .then((res) => {
-        console.log(res.data);
         dispatch(getPizzaSize(res.data));
       })
       .catch((err) => {
@@ -68,7 +65,6 @@ export const fetchGetRecommended = () => {
     api
       .get(`recommended`)
       .then((res) => {
-        console.log(res.data);
         dispatch(getRecommended(res.data));
       })
       .catch((err) => {

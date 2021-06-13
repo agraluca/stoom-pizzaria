@@ -1,10 +1,11 @@
-import Button from "components/Button";
-import { Container } from "components/Container";
-import PizzaCard from "components/PizzaCard";
-import { useAppDispatch, useAppSelector } from "hooks";
 import { useEffect } from "react";
 
-import { useHistory } from "react-router-dom";
+import Button from "components/Button";
+import { Container } from "components/Container";
+import Loading from "components/Spinner";
+import PizzaCard from "components/PizzaCard";
+
+import { useAppDispatch, useAppSelector } from "hooks";
 import {
   setOrderDough,
   setOrderName,
@@ -14,15 +15,19 @@ import {
   setRecommendedStatus,
   setPoints,
 } from "store/ducks/order";
+import { fetchGetRecommended } from "store/fetchActions/fetchMenu";
+
+import { useHistory } from "react-router-dom";
 
 import * as path from "routes/paths";
-import { fetchGetRecommended } from "store/fetchActions/fetchMenu";
+
 import * as S from "./styles";
 
 export default function Recommended() {
   const dispatch = useAppDispatch();
   const { recommended } = useAppSelector(({ menu }) => menu);
   const order = useAppSelector(({ order }) => order);
+  const { loading } = useAppSelector(({ loading }) => loading);
   const history = useHistory();
 
   useEffect(() => {
@@ -69,23 +74,27 @@ export default function Recommended() {
 
   return (
     <S.Wrapper>
-      <Container>
-        <PizzaCard
-          type="recommended"
-          recommended
-          name={recommended[0].name}
-          price={recommended[0].price}
-          points={recommended[0].points}
-        />
+      {loading ? (
+        <Loading />
+      ) : (
+        <Container>
+          <PizzaCard
+            type="recommended"
+            recommended
+            name={recommended[0].name}
+            price={recommended[0].price}
+            points={recommended[0].points}
+          />
 
-        <Button className="pay" onClick={goAhead}>
-          Pagar
-        </Button>
+          <Button className="pay" onClick={goAhead}>
+            Pagar
+          </Button>
 
-        <Button className="cancel" onClick={cancelOrder}>
-          Cancelar
-        </Button>
-      </Container>
+          <Button className="cancel" onClick={cancelOrder}>
+            Cancelar
+          </Button>
+        </Container>
+      )}
     </S.Wrapper>
   );
 }

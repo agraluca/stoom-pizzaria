@@ -1,6 +1,8 @@
-import * as S from "./styles";
 import logo from "assets/img/stoom_logo.svg";
+
 import { Link } from "react-router-dom";
+
+import * as S from "./styles";
 
 export default function Menu() {
   return (
