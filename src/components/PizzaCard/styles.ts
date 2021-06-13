@@ -1,12 +1,18 @@
 import styled, { css } from "styled-components";
 
 import { Wrapper as Button } from "components/Button/styles";
+import media from "styled-media-query";
 
 export const Wrapper = styled.section`
   ${({ theme }) => css`
     height: 40rem;
     display: flex;
     justify-content: space-between;
+
+    ${media.lessThan("medium")`
+      flex-direction: column;
+      height: auto;
+    `};
 
     background-color: ${theme.colors.white};
     margin-bottom: ${theme.spacings.xlarge};
@@ -19,6 +25,12 @@ export const Image = styled.img`
     height: 100%;
     width: 30%;
     border-radius: ${theme.border.radius} 0 0 ${theme.border.radius};
+
+    ${media.lessThan("medium")`
+      width: 100%;
+      height: 15rem;
+      border-radius: ${theme.border.radius}  ${theme.border.radius} 0 0;
+    `};
   `}
 `;
 
@@ -37,8 +49,11 @@ export const Header = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 ${theme.spacings.small} 0 0;
+    padding-right: ${theme.spacings.small};
     margin-bottom: ${theme.spacings.medium};
+    ${media.lessThan("medium")`
+      padding-right: 0;
+    `};
   `}
 `;
 
@@ -65,6 +80,9 @@ export const Ribbon = styled.div`
       15% 85%,
       0% 85%
     );
+    ${media.lessThan("medium")`
+      margin-left: ${theme.spacings.large};
+    `};
   `}
 `;
 
@@ -94,6 +112,9 @@ export const CheckBox = styled.div`
       color: ${theme.colors.green};
       transform: scale(2.3);
     }
+    ${media.lessThan("medium")`
+      margin-right: 0;
+    `};
   `}
 `;
 
@@ -117,6 +138,10 @@ export const Price = styled.span<RecommendedProps>`
       : `${theme.font.sizes.large}`};
     font-weight: bold;
     color: ${theme.colors.green};
+
+    ${media.lessThan("medium")`
+     margin-bottom: ${theme.spacings.medium};
+    `};
   `}
 `;
 
@@ -129,5 +154,22 @@ export const Recommended = styled.section`
       width: 30%;
       margin-right: ${theme.spacings.medium};
     }
+
+    .addRecommended {
+      display: flex;
+      svg {
+        width: 3rem;
+        height: 3rem;
+        align-items: center;
+      }
+    }
+
+    ${Price} {
+      margin-bottom: 0;
+    }
+
+    ${media.lessThan("medium")`
+     margin-bottom: ${theme.spacings.medium};
+    `};
   `}
 `;
