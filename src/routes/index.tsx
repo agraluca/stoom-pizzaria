@@ -16,14 +16,13 @@ export default function Routes() {
     <BrowserRouter>
       <Switch>
         <Route path={paths.home} component={Home} exact />
-
+        <Route path={paths.success} component={Success} exact />
         <>
           <Stepper />
           <Route path={paths.pizzaMenu} component={FoodMenu} exact />
           <Route path={paths.dough} component={DoughTypes} exact />
           <Route path={paths.size} component={Size} exact />
           <Route path={paths.recommended} component={Recommended} exact />
-          <Route path={paths.success} component={Success} exact />
         </>
         <Route render={() => <h1>404</h1>} />
       </Switch>

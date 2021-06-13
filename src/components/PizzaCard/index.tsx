@@ -83,7 +83,7 @@ export default function PizzaCard({
         <S.Header>
           <S.Name>{name}</S.Name>
           {recommended ? (
-            <S.Ribbon>Ganhe 50 pontos</S.Ribbon>
+            <S.Ribbon>Ganhe {points} pontos</S.Ribbon>
           ) : (
             <S.CheckBox onClick={addToCart}>
               {isChecked && <Check />}

@@ -11,8 +11,14 @@ export default function Recommended() {
   return (
     <S.Wrapper>
       <Container>
-        <PizzaCard type="recommended" recommended name="Pepperoni" price={50} />
-        <Link to={path.home}>
+        <PizzaCard
+          type="recommended"
+          recommended
+          name="Pepperoni"
+          price={50}
+          points={60}
+        />
+        <Link to={path.success}>
           <Button className="pay">Pagar</Button>
         </Link>
       </Container>

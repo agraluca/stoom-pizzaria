@@ -2,15 +2,18 @@ import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
-    padding: ${theme.spacings.xxlarge} 0 calc(${theme.spacings.xxlarge} * 3);
-    height: 90vh;
+    padding-top: ${theme.spacings.large};
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     h1 {
+      color: ${theme.colors.white};
       align-text: center;
       margin-bottom: ${theme.spacings.small};
+    }
+    a {
+      text-decoration: none;
     }
   `}
 `;
@@ -35,6 +38,6 @@ export const Text = styled.p`
     font-size: ${theme.font.sizes.large};
     text-align: center;
     max-width: 60rem;
-    margin-bottom: ${theme.spacings.large};
+    margin-bottom: ${theme.spacings.small};
   `}
 `;

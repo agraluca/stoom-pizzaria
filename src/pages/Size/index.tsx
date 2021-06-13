@@ -11,9 +11,9 @@ export default function Size() {
   return (
     <S.Wrapper>
       <Container>
-        <PizzaCard type="size" name="Pizza Grande" />
-        <PizzaCard type="size" name="Pizza Média" />
-        <PizzaCard type="size" name="Pizza Pequena" />
+        <PizzaCard type="size" name="Grande" />
+        <PizzaCard type="size" name="Média" />
+        <PizzaCard type="size" name="Pequena" />
         <Link to={path.recommended}>
           <Button disabled={!size}>Continuar</Button>
         </Link>
