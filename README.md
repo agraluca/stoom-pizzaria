@@ -1,46 +1,92 @@
-# Getting Started with Create React App
+<h1 align="center">
+    <img alt="Stoom Pizzaria" title="Stoom Pizzaria" src=".github/logo.png" />
+</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h3 align="center">
+  Stoom Pizzaria
+</h3>
 
-## Available Scripts
+<p align="center">
+  <a href="https://www.linkedin.com/in/agra-luca/"><img alt="Feito por" src="https://img.shields.io/badge/feito%20por-Luca%20Agra-%2315C3"></a>
+  <img alt="Tamanho do repo" src="https://img.shields.io/github/repo-size/agraluca/stoom-pizzaria?color=15C3D6%22">
+  <a href="https://github.com/agraluca/happy_back/commits/main"><img alt="Último commit GitHub" src="https://img.shields.io/github/last-commit/agraluca/stoom-pizzaria?color=15C3D6"></a>
+  <img alt="GitHub" src="https://img.shields.io/github/license/agraluca/stoom-pizzaria?color=15C3D6">
+</p>
 
-In the project directory, you can run:
+<p align="center">
+  <a href="#-sobre-o-projeto">Sobre</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-começando">Começando</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-licença">Licença</a>
+</p>
 
-### `yarn start`
+<p align="center">
+  <img alt="Stoom Pizzaria" src=".github/stoom.png" width="100%">
+</p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## :bulb: Sobre o projeto
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Esse projeto foi desenvolvido como desafio prático para a empresa [Stoom](https://stoom.com.br/) 🚀
 
-### `yarn test`
+Stoom Pizzaria é uma aplicação que simula um site de pedido de delivery para Pizzaria.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Nesse projeto decidi utilizar TypeScript juntamente com Redux - coisa que nunca havia feito antes. Foi uma experiência desafiadora mas muita boa. Tive algumas dificuldades com a tipagem do redux, mas no geral me virei. Decidi não utilizar bibliotecas de componente como Antd e Material UI para conseguir mostrar minhas habilidades com o CSS - nessa caso utilizei o Styled components. 
 
-### `yarn build`
+Como API, utilizei o [Mock API](https://mockapi.io/), que me permitiu criar apenas 4 endpoints. Eu acabei precisando de 5 no total, mas como o plano gratuito so permitia 4 endpoints, utilizei também o local storage do navegador, mostrando também saber utilizar essa ferrmanta.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Montei uma estrutura de projeto pensada a longo prazo, usando prettier, eslint e uma arquitetura bem dividida com os Ducks no Redux. Além disso criei um tema para o projeto, tornando o desenvlvimento mais prazeroso - visto que o TypeScript auxilia na tipagem ao acessar uma propriedade - e evitando problemas de alterações de cores, espaçamento e etc no futuro, bastando apenas alterar em um lugar. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Por fim, como a logo da Stoom não estava de fácil acesso pela internet, decidi vetorizar usando o Figma para ter a logo em SVG, mantendo a qualidade e possibilitando alterações de cores.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+O link da aplicação no ar será: 
+[Stoom Pizzaria](https://stoom-pizzaria.netlify.app/)
 
-### `yarn eject`
+## 🚀 Tecnologias
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Technologias que eu utilizei desenvolvendo essa aplicação:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [ReactJS](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [Axios](https://github.com/axios/axios)
+- [React Router DOM](https://reacttraining.com/react-router/)
+- [Styled Component](https://styled-components.com/)
+- [Testing Library](https://testing-library.com/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 💻 Começando
+Para começar precisamos instalar algumas coisas
 
-## Learn More
+### Requerimentos
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [Node.js](https://nodejs.org/en/)
+- [Yarn](https://classic.yarnpkg.com/)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+
+```bash
+$ git clonehttps://github.com/agraluca/stoom-pizzaria.git && cd stoom-pizzaria
+```
+
+**Siga esses passos**
+
+### Web
+
+```bash
+
+# Instale as dependências
+$ yarn
+
+
+# Rodando o cliente
+$ yarn start
+```
+
+
+
+## 📝 Licença
+
+Esse projeto é licenciado pelo MIT License - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+---
+
+Feito com amor 💙&nbsp; por Luca Agra 👋 &nbsp;[Veja meu linkedin](https://www.linkedin.com/in/agra-luca/)
