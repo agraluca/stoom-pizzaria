@@ -32,7 +32,7 @@ export default function Success() {
     dispatch(setRecommended(""));
     dispatch(setRecommendedStatus(false));
     dispatch(setOrderName(""));
-    history.push(path.home);
+    history.push(path.pizzaMenu);
   };
   return (
     <>
