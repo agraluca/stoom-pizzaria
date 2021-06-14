@@ -10,7 +10,6 @@ type RecommendedProps = {
 export const Wrapper = styled.section<RecommendedProps>`
   ${({ theme, recommended }) => css`
     height: 40rem;
-
     display: flex;
     justify-content: space-between;
     cursor: ${!recommended && "pointer"};
@@ -41,8 +40,9 @@ export const Image = styled.img`
 
 export const Info = styled.aside`
   ${({ theme }) => css`
-    margin: ${theme.spacings.large} 0 0 ${theme.spacings.large};
-    width: 70%;
+    /* margin: ${theme.spacings.large} 0 0 ${theme.spacings.large}; */
+    padding: ${theme.spacings.xsmall};
+    width: 100%;
     display: flex;
     flex-direction: column;
   `}
@@ -54,7 +54,7 @@ export const Header = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-right: ${theme.spacings.small};
+    /* padding-right: ${theme.spacings.small}; */
     margin-bottom: ${theme.spacings.medium};
     ${media.lessThan("medium")`
       padding-right: 0;
