@@ -84,6 +84,7 @@ export default function Recommended() {
             name={recommended[0].name}
             price={recommended[0].price}
             points={recommended[0].points}
+            description={recommended[0].description}
           />
 
           <Button className="pay" onClick={goAhead}>
