@@ -5,7 +5,7 @@ import { Wrapper as Button } from "components/Button/styles";
 
 export const Wrapper = styled.section`
   ${({ theme }) => css`
-    height: 80vh;
+    height: 85vh;
     padding: ${theme.spacings.xxlarge} calc(${theme.spacings.xxlarge}*2);
     display: grid;
     grid-template-columns: repeat(2, minmax(35rem, 1fr));

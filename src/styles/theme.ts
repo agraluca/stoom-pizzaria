@@ -31,6 +31,7 @@ export default {
     white: "#ffffff",
     black: "#0B090C",
     gray: "#f3f3f3",
+    mediumGray: "#EBEBEB",
     darkGray: "#777777",
     yellow: "#FFEC02",
   },

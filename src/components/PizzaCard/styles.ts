@@ -3,12 +3,17 @@ import styled, { css } from "styled-components";
 import { Wrapper as Button } from "components/Button/styles";
 import media from "styled-media-query";
 
-export const Wrapper = styled.section`
-  ${({ theme }) => css`
+type RecommendedProps = {
+  recommended: boolean;
+};
+
+export const Wrapper = styled.section<RecommendedProps>`
+  ${({ theme, recommended }) => css`
     height: 40rem;
+
     display: flex;
     justify-content: space-between;
-
+    cursor: ${!recommended && "pointer"};
     ${media.lessThan("medium")`
       flex-direction: column;
       height: auto;
@@ -25,7 +30,7 @@ export const Image = styled.img`
     height: 100%;
     width: 30%;
     border-radius: ${theme.border.radius} 0 0 ${theme.border.radius};
-
+    object-fit: cover;
     ${media.lessThan("medium")`
       width: 100%;
       height: 15rem;
@@ -104,7 +109,7 @@ export const CheckBox = styled.div`
     margin-right: ${theme.spacings.xxsmall};
     cursor: pointer;
     position: relative;
-    background: ${theme.colors.gray};
+    background: ${theme.colors.mediumGray};
     width: 3rem;
     height: 3rem;
     border-radius: 100%;
@@ -132,10 +137,6 @@ export const Description = styled.p`
     margin-bottom: ${theme.spacings.medium};
   `}
 `;
-
-type RecommendedProps = {
-  recommended: boolean;
-};
 
 export const Price = styled.span<RecommendedProps>`
   ${({ theme, recommended }) => css`
@@ -176,6 +177,10 @@ export const Recommended = styled.section`
 
     ${media.lessThan("medium")`
      margin-bottom: ${theme.spacings.medium};
+     ${Button} {
+
+      margin-right: 0;
+    }
     `};
   `}
 `;

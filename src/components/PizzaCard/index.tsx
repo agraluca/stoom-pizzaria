@@ -38,24 +38,26 @@ export default function PizzaCard({
   const order = useAppSelector(({ order }) => order);
 
   const addToCart = () => {
-    setIsChecked(!isChecked);
-    if (!isChecked) {
-      if (type === "name") {
-        dispatch(setOrderName(name));
-        price && dispatch(setOrderPrice(price));
-      } else if (type === "dough") {
-        dispatch(setOrderDough(name));
+    if (!recommended) {
+      setIsChecked(!isChecked);
+      if (!isChecked) {
+        if (type === "name") {
+          dispatch(setOrderName(name));
+          price && dispatch(setOrderPrice(price));
+        } else if (type === "dough") {
+          dispatch(setOrderDough(name));
+        } else {
+          dispatch(setOrderSize(name));
+        }
       } else {
-        dispatch(setOrderSize(name));
-      }
-    } else {
-      if (type === "name") {
-        dispatch(setOrderName(""));
-        dispatch(setOrderPrice(""));
-      } else if (type === "dough") {
-        dispatch(setOrderDough(""));
-      } else {
-        dispatch(setOrderSize(""));
+        if (type === "name") {
+          dispatch(setOrderName(""));
+          dispatch(setOrderPrice(""));
+        } else if (type === "dough") {
+          dispatch(setOrderDough(""));
+        } else {
+          dispatch(setOrderSize(""));
+        }
       }
     }
   };
@@ -66,7 +68,7 @@ export default function PizzaCard({
   return (
     <>
       {recommended && <S.TitleDay>Pizza do dia:</S.TitleDay>}
-      <S.Wrapper>
+      <S.Wrapper onClick={addToCart} recommended={recommended}>
         <S.Image src={img} alt="Pizza de calabresa" />
         <S.Info>
           <S.Header>

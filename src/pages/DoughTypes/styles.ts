@@ -10,6 +10,7 @@ export const Wrapper = styled.section`
 
     ${Container} {
       margin: ${theme.spacings.large};
+      max-width: 60rem;
     }
     a {
       text-decoration: none;

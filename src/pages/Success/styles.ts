@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 85vh;
     h1 {
       color: ${theme.colors.white};
       text-align: center;
