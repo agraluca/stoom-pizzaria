@@ -67,6 +67,9 @@ Para começar precisamos instalar algumas coisas
 $ git clone https://github.com/agraluca/stoom-pizzaria.git && cd stoom-pizzaria
 ```
 
+Caso queiram clonar o mock da api, utilizem esse link:
+[Mock Api Clone](https://mockapi.io/clone/60c5085dec8ef800175e0d37)
+
 **Siga esses passos**
 
 ### Web
